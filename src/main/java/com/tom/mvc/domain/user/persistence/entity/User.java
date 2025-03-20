@@ -3,6 +3,7 @@ package com.tom.mvc.domain.user.persistence.entity;
 
 import com.tom.mvc.domain.user.api.request.UserPostUserReq;
 import com.tom.mvc.domain.user.enums.UserStat;
+import com.tom.mvc.global.converter.DbDataConverter;
 import com.tom.mvc.global.entity.RecordTrace;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -14,7 +15,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table
+@Table(name = "user_")
 @DynamicUpdate
 public class User {
 
@@ -28,8 +29,10 @@ public class User {
     private UserStat stat;
 
     @Column(length = 500, nullable = false)
+    @Convert(converter = DbDataConverter.class)
     private String name;
     @Column(length = 500, unique = true, nullable = false)
+    @Convert(converter = DbDataConverter.class)
     private String email;
     @Column(length = 500)
     private String img;
