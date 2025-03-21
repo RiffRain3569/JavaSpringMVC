@@ -5,12 +5,10 @@ import com.tom.mvc.domain.user.api.request.UserPostUserReq;
 import com.tom.mvc.domain.user.api.response.UserGetUserRes;
 import com.tom.mvc.domain.user.application.UserModifyUseCase;
 import com.tom.mvc.domain.user.application.UserQueryUseCase;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,7 +27,7 @@ public class UserApi {
     }
 
     @PostMapping
-    public UserGetUserRes postUser(UserPostUserReq req) {
+    public UserGetUserRes postUser(@Valid @RequestBody UserPostUserReq req) {
         return userModifyUseCase.postUser(req);
     }
 

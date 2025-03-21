@@ -4,8 +4,10 @@ import com.tom.mvc.global.util.Aes256Util;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Converter
+@Component
 public class DbDataConverter implements AttributeConverter<String, String> {
 
     @Value("${project.db.crypt.secret-key}")

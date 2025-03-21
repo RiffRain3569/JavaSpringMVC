@@ -14,5 +14,5 @@ spring:
 project:
   db:
     crypt:
-      secret-key: 01234567890123456789012345678901
-      iv: 0123456789012345
+      secret-key: ENC(oNDtJsaXi6uGOO31exIf/o6Sw11+Gr7qtqXtgZdaHMrf2h6soJK26pJL/qKcd+Vgmajkkn00v5AQ2WOmj6Ez2Nbd35SmvjW3r5jQd3YnZ/g=)
+      iv: ENC(F4DWNzQrnDBTO7G5GiMROn3r6togyTOFiUuUTPDxJhWpzOMNCSdQUytmdfBThrgO6Ns0CweLX4LpbuU9TQpgzw==)

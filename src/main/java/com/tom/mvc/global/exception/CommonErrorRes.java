@@ -13,9 +13,9 @@ public class CommonErrorRes {
     private String error;
     private String message;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String data;
+    private Object data;
 
-    public static CommonErrorRes of(CommonErrorType commonErrorType) {
+    public static CommonErrorRes from(CommonErrorType commonErrorType) {
         return new CommonErrorRes(
                 commonErrorType.name(),
                 commonErrorType.getMessage(),
@@ -28,6 +28,14 @@ public class CommonErrorRes {
                 commonErrorType.name(),
                 message,
                 null
+        );
+    }
+
+    public static CommonErrorRes of(String error, String message, Object data) {
+        return new CommonErrorRes(
+                error,
+                message,
+                data
         );
     }
 }

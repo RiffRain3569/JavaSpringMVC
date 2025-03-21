@@ -22,7 +22,7 @@ public class CommonControllerAdvice {
         } else {
             this.printProdLog(e);
         }
-        return CommonErrorRes.of(CommonErrorType.COMMON_INVALID);
+        return CommonErrorRes.from(CommonErrorType.COMMON_INVALID);
     }
 
 
@@ -34,7 +34,7 @@ public class CommonControllerAdvice {
         } else {
             this.printProdLog(e);
         }
-        return CommonErrorRes.of(CommonErrorType.COMMON_INVALID);
+        return CommonErrorRes.from(CommonErrorType.COMMON_INVALID);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
