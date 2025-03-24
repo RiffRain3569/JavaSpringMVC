@@ -22,7 +22,7 @@ public class CommonControllerAdvice {
         } else {
             this.printProdLog(e);
         }
-        return CommonErrorRes.from(CommonErrorType.COMMON_INVALID);
+        return CommonErrorRes.from(CommonErrorType.INVALID_COMMON);
     }
 
 
@@ -34,18 +34,18 @@ public class CommonControllerAdvice {
         } else {
             this.printProdLog(e);
         }
-        return CommonErrorRes.from(CommonErrorType.COMMON_INVALID);
+        return CommonErrorRes.from(CommonErrorType.INVALID_COMMON);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public CommonErrorRes handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public CommonErrorRes invalidParameterError(MethodArgumentNotValidException e) {
         if (log.isDebugEnabled()) {
             log.error("MethodArgumentNotValidError : ", e);
         } else {
             this.printProdLog(e);
         }
-        return CommonErrorRes.of(CommonErrorType.COMMON_INVALID, e.getBindingResult().getAllErrors().getFirst().getDefaultMessage());
+        return CommonErrorRes.of(CommonErrorType.INVALID_PARAMETER, e.getBindingResult().getAllErrors().getFirst().getDefaultMessage());
     }
 
     private void printProdLog(Exception e) {

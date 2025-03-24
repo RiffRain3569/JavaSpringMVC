@@ -1,29 +1,25 @@
 package com.tom.mvc.global.converter;
 
+import com.tom.mvc.global.config.DbConfig;
 import com.tom.mvc.global.util.Aes256Util;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Converter
 @Component
+@RequiredArgsConstructor
 public class DbDataConverter implements AttributeConverter<String, String> {
-
-    @Value("${project.db.crypt.secret-key}")
-    private String SECRET_KEY;
-
-    @Value("${project.db.crypt.iv}")
-    private String IV;
-
+    private final DbConfig dbConfig;
 
     @Override
     public String convertToDatabaseColumn(String attribute) {
-        return Aes256Util.encrypt(attribute, SECRET_KEY, IV);
+        return Aes256Util.encrypt(attribute, dbConfig.getSecretKey(), dbConfig.getIv());
     }
 
     @Override
     public String convertToEntityAttribute(String dbData) {
-        return Aes256Util.decrypt(dbData, SECRET_KEY, IV);
+        return Aes256Util.decrypt(dbData, dbConfig.getSecretKey(), dbConfig.getIv());
     }
 }
