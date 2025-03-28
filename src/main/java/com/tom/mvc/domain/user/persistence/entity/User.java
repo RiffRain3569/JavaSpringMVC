@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.util.UUID;
+
 
 @Getter
 @Entity
@@ -23,6 +25,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+
+    @Column(length = 36, unique = true, nullable = false)
+    private String uuid;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 32, nullable = false, columnDefinition = "VARCHAR(32)")
@@ -42,6 +47,7 @@ public class User {
 
     public static User create(UserPostUserReq req) {
         User entity = new User();
+        entity.uuid = UUID.randomUUID().toString();
         entity.stat = UserStat.NORMAL;
         entity.name = req.getName();
         entity.email = req.getEmail();

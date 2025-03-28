@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/v1")
 public class RestWebUserController {
 
     @GetMapping
     public String healthCheck() {
+        System.out.println("healthCheck");
         return "ok";
     }
 }

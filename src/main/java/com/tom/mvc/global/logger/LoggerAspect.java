@@ -1,4 +1,4 @@
-package com.tom.mvc.infrastucture.logger;
+package com.tom.mvc.global.logger;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;

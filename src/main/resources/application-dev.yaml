@@ -14,5 +14,20 @@ spring:
 project:
   db:
     crypt:
-      secret-key: ENC(oNDtJsaXi6uGOO31exIf/o6Sw11+Gr7qtqXtgZdaHMrf2h6soJK26pJL/qKcd+Vgmajkkn00v5AQ2WOmj6Ez2Nbd35SmvjW3r5jQd3YnZ/g=)
+      secret: ENC(oNDtJsaXi6uGOO31exIf/o6Sw11+Gr7qtqXtgZdaHMrf2h6soJK26pJL/qKcd+Vgmajkkn00v5AQ2WOmj6Ez2Nbd35SmvjW3r5jQd3YnZ/g=)
       iv: ENC(F4DWNzQrnDBTO7G5GiMROn3r6togyTOFiUuUTPDxJhWpzOMNCSdQUytmdfBThrgO6Ns0CweLX4LpbuU9TQpgzw==)
+  jwt:
+    client:
+      access:
+        secret: 0123456789012345678901234567890123456789012345678901234567890123
+        expiration: 3600000 # 1000 * 60 * 15
+      refresh:
+        secret: 9876543210987654321098765432109876543210987654321098765432109876
+        expiration: 604800000 # 1000 * 60 * 60 * 64 * 7
+    admin:
+      access:
+        secret: 0123456789012345678901234567890123456789012345678901234567890123
+        expiration: 3600000 # 1000 * 60 * 15
+      refresh:
+        secret: 9876543210987654321098765432109876543210987654321098765432109876
+        expiration: 604800000 # 1000 * 60 * 60 * 64 * 7

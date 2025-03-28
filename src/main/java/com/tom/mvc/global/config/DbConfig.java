@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Getter
 public class DbConfig {
-    @Value("${project.db.crypt.secret-key}")
+    
+    @Value("${project.db.crypt.secret}")
     private String secretKey;
 
     @Value("${project.db.crypt.iv}")

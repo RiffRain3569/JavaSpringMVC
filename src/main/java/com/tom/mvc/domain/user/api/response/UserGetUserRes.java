@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserGetUserRes {
     private Long id;
+    private String uuid;
     private UserStat stat;
     private String name;
     private String email;
@@ -22,6 +23,7 @@ public class UserGetUserRes {
     public static UserGetUserRes from(User entity) {
         return new UserGetUserRes(
                 entity.getId(),
+                entity.getUuid(),
                 entity.getStat(),
                 entity.getName(),
                 entity.getEmail(),

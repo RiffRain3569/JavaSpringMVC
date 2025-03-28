@@ -2,6 +2,7 @@ package com.tom.mvc.web.client.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -9,6 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientWebUserController {
     @GetMapping
     public String healthCheck() {
+        return "ok";
+    }
+
+    @PostMapping("/signIn")
+    public String signIn() {
         return "ok";
     }
 }
